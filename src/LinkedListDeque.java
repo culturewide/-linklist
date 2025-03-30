@@ -15,8 +15,9 @@ public class LinkedListDeque<T> {
         }
     }
     public IntNode sentinel ;
-    public void LinkedListDeque(){
-        IntNode sentinel=new IntNode(null, null, null);
+    //构造函数不可以带void
+    public  LinkedListDeque(){
+        sentinel=new IntNode(null, null, null);
         sentinel.next=sentinel;
         sentinel.prev=sentinel;
         size=0;
@@ -25,11 +26,15 @@ public class LinkedListDeque<T> {
 
 
     public void addFirst(T t) {
-            sentinel.next = new IntNode(t,sentinel.next,sentinel);
+            IntNode s=new IntNode(t,sentinel.next,sentinel);
+            sentinel.next.prev=s;
+            sentinel.next = s;
             size+=1;
         }
     public void addLast(T t) {
-            sentinel.prev = new IntNode(t,sentinel,sentinel.prev);
+            IntNode s=new IntNode(t,sentinel,sentinel.prev);
+            sentinel.prev.next=s;
+            sentinel.prev = s;
             size+=1;
         }
     public boolean isEmpty() {
