@@ -8,6 +8,8 @@ public class LinkedListDeque<T> {
             first = null;
             next = null;
         }*/
+        //在Java中，类的成员变量可以在类中直接声明和初始化，
+       // 但执行语句（如赋值操作）必须放在方法、构造函数或初始化块中。
         public IntNode(T item, IntNode p, IntNode n) {
             first=item;
             next=p;
@@ -61,6 +63,23 @@ public class LinkedListDeque<T> {
             return x;
         }
     }
+    IntNode q = sentinel;
+    public static int aNum=0;
+    public T getRecursive(int index){
+        if(size<=index){
+            return null;
+        }
+        if(aNum!=index) {
+            q=q.next;
+            aNum++;
+            return getRecursive(index);
+        }else {
+            aNum=0;
+            return q.next.first;
+
+        }
+
+    }
     public T    removeLast() {
         if(sentinel==sentinel.prev) {
             return null;
@@ -90,6 +109,10 @@ public class LinkedListDeque<T> {
         LinkedListDeque <Integer>list = new LinkedListDeque();
         list.addFirst(4);
         list.addLast(3);
-        System.out.println(list.get(1));
+       // System.out.println(list.get(1));
+        //list.printDeque();
+       // System.out.println(list.removeFirst());
+       // System.out.println(list.size());
+        System.out.println(list.getRecursive(1));
     }
 }
