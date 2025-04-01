@@ -105,7 +105,7 @@ public class LinkedListDeque<T> {
     }
 
 
-    public static void main (String[] args) {
+ /*   public static void main (String[] args) {
         LinkedListDeque <Integer>list = new LinkedListDeque();
         list.addFirst(4);
         list.addLast(3);
@@ -114,5 +114,5 @@ public class LinkedListDeque<T> {
        // System.out.println(list.removeFirst());
        // System.out.println(list.size());
         System.out.println(list.getRecursive(1));
-    }
+    }*/
 }
